@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>I&S</title>
+    <link rel="icon" type="image/png" href="/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <li>
+              <div class="server-input">
+                <input 
+                  id="serverUrl" 
+                  type="url" 
+                  placeholder="URL do servidor Flask (ex.: http://SEU-IP)" 
+                  autocomplete="off" 
+                  spellcheck="false" 
+                />
+                <button id="connectBtn" type="button">Conectar</button>
+              </div>
+            </li>
+            <li>
+              <div id="history-container">
+                <h2>Histórico:</h2>
+                <ul id="song-history"></ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <header>
+      <img class="logo" src="/img/logo.png" alt="I&S" />
+    </header>
+
+    <main>
+      <div id="music-player">
+        <div class="top-bar">
+          <button id="playlist-btn" class="player-btn"><i class="fas fa-bars"></i></button>
+          <button id="volume-btn" class="player-btn"><i class="fas fa-volume-high"></i></button>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+        </div>
+
+        <div class="album-art">
+          <img id="album-cover" src="/img/disco.png" alt="Capa do Álbum">
+        </div>
+
+        <div class="song-info">
+          <h2 id="song-title">Nada Tocando...</h2>
+          <p id="song-artist">Conecte-se a um servidor</p>
+        </div>
+
+        <div class="progress-bar">
+          <div id="progress"></div>
+        </div>
+
+        <div class="controls">
+          <button class="player-btn"><i class="fas fa-redo"></i></button>
+          <button class="player-btn"><i class="fas fa-step-backward"></i></button>
+          <button id="play-pause-btn" class="player-btn play-btn"><i class="fas fa-play"></i></button>
+          <button class="player-btn"><i class="fas fa-step-forward"></i></button>
+          <button class="player-btn"><i class="fas fa-random"></i></button>
+        </div>
+      </div>
+
+      <div id="playlist-overlay" class="hidden">
+        <ul id="songList"></ul>
+      </div>
+    </main>
+
+    <audio id="audio"></audio>
+
+    <footer style="display: none;">
+      <div id="status" aria-live="polite"></div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
